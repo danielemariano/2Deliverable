@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/danielemariano/eclipse-workspace/2Deliverable/lib/java-json.jar"/>
+	<classpathentry kind="lib" path="/Users/danielemariano/eclipse-workspace/2Deliverable/lib/org.eclipse.jgit-5.11.1.202105131744-r.jar"/>
+	<classpathentry kind="lib" path="/Users/danielemariano/eclipse-workspace/2Deliverable/lib/slf4j-api-1.7.30.jar"/>
+	<classpathentry kind="lib" path="/Users/danielemariano/eclipse-workspace/2Deliverable/lib/slf4j-simple-1.7.30.jar"/>
+	<classpathentry kind="lib" path="/Users/danielemariano/eclipse-workspace/2Deliverable/lib/SMOTE-1.0.3.jar"/>
+	<classpathentry kind="lib" path="/Users/danielemariano/eclipse-workspace/2Deliverable/lib/weka.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
