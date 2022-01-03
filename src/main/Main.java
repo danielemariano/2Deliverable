@@ -10,10 +10,11 @@ import java.util.Date;
 import java.util.List;
 
 
+
 public class Main {
 
-	static String projName2 = "BOOKKEEPER";
-	static String projName = "OPENJPA";
+	static String projName = "BOOKKEEPER";
+	static String projName2 = "OPENJPA";
 	static Integer max = 1;
 	static Integer index;
 	static int releaseCounter = 1;
