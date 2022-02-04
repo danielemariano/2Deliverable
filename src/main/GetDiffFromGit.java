@@ -35,7 +35,8 @@ import java.util.Set;
 public class GetDiffFromGit {
 
 	static String projName = "bookkeeper/";
-	static String projName2 = "openJPA/";
+	//static String projName = "openJPA/";
+	//static String projName = "mahout/";
 	static URI path;
 	static String releaseString = "Release";
 	static String autori = "autori";
@@ -46,19 +47,15 @@ public class GetDiffFromGit {
 	static String root_dir = "/danielemariano";
 	static String git_dir = "/git/";
 	static String nRString = "NR";
-
 	URI uri = null;
-
 
 private GetDiffFromGit(){
 
 }
 
-
 public static boolean countChecker (Set<String> countDevelopers, RevCommit rev) {
 	return countDevelopers.isEmpty() || !countDevelopers.contains(rev.getAuthorIdent().getEmailAddress().toString());
 }
-
 
 public static int linesAddedCycler(DiffEntry diff, DiffFormatter df) {
 	int linesAdded = 0;
@@ -76,14 +73,13 @@ public static int linesAddedCycler(DiffEntry diff, DiffFormatter df) {
 	return linesAdded;
 }
 
-
 public static JSONArray getPerCommitMetrics(Repository repository, Release release, Set<String> countDevelopers) throws IOException, JSONException {
 
 		int countRev = 0;
 		int linesAdded;
 		String pathName = "";
 		try {
-			path =  new URI(users_dir + root_dir + git_dir + projName + ".git");
+			path =  new URI(users_dir + root_dir + git_dir);
 			pathName = path.getPath();
 		}
 		catch(Exception e) {
@@ -92,7 +88,6 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 
 		JSONObject jsonDataset = new JSONObject();
 		JSONArray jsonArray = new JSONArray();
-
 		for(Commit commit: release.getCommitList()) {
 			countDevelopers.clear();
 			try {
@@ -109,9 +104,9 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 
 		        List<DiffEntry> diffs = getDiffs(repository, rev);
 		        for (DiffEntry diff : diffs) {
-
-			    	if(diff.toString().contains(".java") && new File(pathName + projName + diff.toString().substring(14).replace("]", "")).exists()) {
-			    		linesAdded = linesAddedCycler(diff, df);
+			       
+			    	if(diff.toString().contains(".java") && new File(pathName + projName + diff.toString().substring(14).replace("]", "")).exists()) {				    	
+				        linesAdded = linesAddedCycler(diff, df);
 				        jsonDataset.put(fileNameString, diff.toString().substring(14).replace("]", ""));
 				        jsonDataset.put(releaseString, release.getInt());
 				        jsonDataset.put("LOC", countLines(diff.toString().substring(14).replace("]", ""), pathName));
@@ -134,15 +129,17 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 
 	public static long countLines(String fileName, String pathName) {
 	      long lines = 0;
-	      try (BufferedReader reader = new BufferedReader(new FileReader(pathName + projName + "/" + fileName))) {
-	    	  String check = reader.readLine();
-	          while (check != null) {
-	        	  lines++;
-	          }
-
-	      } catch (IOException e) {
+	      
+	      try(BufferedReader reader = new BufferedReader(new FileReader(pathName + projName + fileName))) {
+	    	  while(reader.readLine() != null) {
+	    		  lines++;
+	    	  }
+	      }
+	      
+	      catch (IOException e) {
 	          e.printStackTrace();
 	      }
+	      
 	      return lines;
 
 	 }
@@ -174,7 +171,7 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 		}
 
 		return diffs;
- }
+	}
 
 	public static boolean exists(JSONArray releaseArray, JSONObject obj) throws JSONException {
 			return (getElement(releaseArray, obj) != -1);
@@ -190,8 +187,6 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 		}
 		return -1;
 	}
-
-
 
 	public static JSONArray getMetrics(List<Release> releaseList) throws IOException, JSONException, NoHeadException, GitAPIException, ParseException{
 		String pathName = "";
@@ -218,7 +213,6 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 	    }
         return generateJsonArray(commitJsonArray);
 	}
-
 
 	public static String getLoc(JSONArray commitJsonArray, int i, JSONObject releaseObject) throws JSONException {
 
@@ -270,7 +264,6 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 
 		return locAdded.toString();
 	}
-
 
     public static JSONArray generateJsonArray(JSONArray commitJsonArray) throws JSONException {
 

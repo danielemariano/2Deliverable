@@ -13,7 +13,8 @@ import java.util.List;
 
 public class GetGitInfo {
 	static String projName = "bookkeeper/";
-	static String projName2 = "openJPA/";
+	//static String projName = "openJPA/";
+	//static String projName = "mahout/";
 	static String commitString = "commit";
 	public static final String PROGRAM = "git log --date=iso-strict --name-status --stat HEAD --date-order --reverse";
 	static boolean done = false;

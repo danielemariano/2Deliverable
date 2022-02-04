@@ -1,6 +1,5 @@
 package main;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,9 +26,6 @@ import java.util.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
-
-
 public class GetReleaseInfo {
 
 	  static Integer max = 1;
@@ -41,42 +37,37 @@ public class GetReleaseInfo {
 	  static String releaseDateString = "releaseDate";
 	  static String versionString = "versions";
 	  static String projName ="BOOKKEEPER";
-	  static String projName2 = "OPENJPA";
+	  //static String projName = "OPENJPA";
+	  //static String projName = "MAHOUT";
 	  static List<Class> auxList = new ArrayList<>();
-
-
 
 	  private GetReleaseInfo() {
 
 	  }
 
-
-
-
       public static List<Release> getReleaseList() throws ParseException, JSONException, IOException {
-
-		   //Fills the arraylist with releases dates and orders them
-		   //Ignores releases with missing dates
-		   releases = new ArrayList<>();
-		   Integer i;
-		   String url = "https://issues.apache.org/jira/rest/api/2/project/" + projName;
-		   JSONObject json = readJsonFromUrl(url);
-		   List<Release> releaseList = new ArrayList<>();
-		   JSONArray versions = json.getJSONArray(versionString);
-		   releaseNames = new HashMap<>();
-		   releaseID = new HashMap<> ();
-		   for (i = 0; i < versions.length(); i++ ) {
-			   String name = "";
-		       String id = "";
-		       if(versions.getJSONObject(i).has(releaseDateString)) {
-		    	   if (versions.getJSONObject(i).has("name"))
-		    		   name = versions.getJSONObject(i).get("name").toString();
-		           if (versions.getJSONObject(i).has("id")) {
-		               id = versions.getJSONObject(i).get("id").toString();
-		               addRelease(versions.getJSONObject(i).get(releaseDateString).toString(), name,id);
-		           	}
-		            }
-		         }
+    	  //Fills the arraylist with releases dates and orders them
+		  //Ignores releases with missing dates
+		  releases = new ArrayList<>();
+		  Integer i;
+		  String url = "https://issues.apache.org/jira/rest/api/2/project/" + projName;
+		  JSONObject json = readJsonFromUrl(url);
+		  List<Release> releaseList = new ArrayList<>();
+		  JSONArray versions = json.getJSONArray(versionString);
+		  releaseNames = new HashMap<>();
+		  releaseID = new HashMap<> ();
+		  for (i = 0; i < versions.length(); i++ ) {
+			  String name = "";
+		      String id = "";
+		      if(versions.getJSONObject(i).has(releaseDateString)) {
+		    	  if(versions.getJSONObject(i).has("name"))
+		    		  name = versions.getJSONObject(i).get("name").toString();
+		          if(versions.getJSONObject(i).has("id")) {
+		        	  id = versions.getJSONObject(i).get("id").toString();
+		              addRelease(versions.getJSONObject(i).get(releaseDateString).toString(), name,id);
+		          }
+		      }
+		   }
 		   // order releases by date
 		   Collections.sort(releases, (LocalDateTime o1, LocalDateTime o2) -> o1.compareTo(o2));
 		   for ( i = 0; i < releases.size(); i++) {
@@ -224,9 +215,5 @@ public class GetReleaseInfo {
 		    		  release.setCommitList(temp);
 		    		  temp = new ArrayList<>();
 		    	  }
-
 		   }
-
-
-
  }

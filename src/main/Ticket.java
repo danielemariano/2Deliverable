@@ -13,8 +13,7 @@ public class Ticket {
 	private Integer injectedVersion;
 	private Integer openingVersion;
 	private Integer fixedVersion;
-	private Integer p;
-	
+	private Integer p;	
 	
 	public Ticket (String name, Date creationDate, Date resolutionDate, String id) {
 		this.name = name;
@@ -25,13 +24,11 @@ public class Ticket {
 	
 	Ticket(){
 		
-	}
-	
+	}	
 	
 	public String getName() {
 		return name;
-	}
-	
+	}	
 	
 	public Date getCreationDate() {
 		return creationDate;
@@ -39,19 +36,16 @@ public class Ticket {
 	
 	public Integer getSequenceNumber() {
 		return sequenceNumber;
-	}
-	
+	}	
 	
 	public Date getResolutionDate() {
 		return resolutionDate;
-	}
-	
+	}	
 	
 	public String getId() {
 		return id;
 	}
-	
-	
+		
 	public Commit getCommit() {
 		return commit;
 	}
@@ -67,37 +61,30 @@ public class Ticket {
 	public Integer getFV() {
 		return fixedVersion;
 	}
-	
-	
+		
 	public Integer getP() {
 		return p;
 	}
 	
-
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	
 	public void setCreationDate(Date cDate) {
 		this.creationDate = cDate;
-	}
-	
+	}	
 	
 	public void setResolutionDate(Date rDate ) {
 		this.resolutionDate = rDate;
 	}
-	
-	
+		
 	public void setId(String id) {
 		this.id = id;
-	}
-	
+	}	
 	
 	public void setCommit(Commit commit) {
 		this.commit = commit;
-	}
-	
+	}	
 	
 	public void setIV(Integer injectedVersion) {
 		this.injectedVersion = injectedVersion;
@@ -119,6 +106,3 @@ public class Ticket {
 		this.sequenceNumber = sequenceNumber;
 	}
 }
-
-
-
