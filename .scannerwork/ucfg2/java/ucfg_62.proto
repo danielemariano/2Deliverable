@@ -1,0 +1,49 @@
+
+'main.Proportion#getP(Ljava/util/List;)IW
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaB B("10*á
+6W
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaI I(†
+ù
+W
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaI I(
+%3java.lang.Integer"
+__arrayGet*
+
+ljava.util.List*
+""*
+7
+1*ä
+7W
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaH H(†
+ù
+W
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaH H(
+%2java.lang.Integer"
+__arrayGet*
+
+ljava.util.List*
+""*	
+6
+7
+1*±
+10W
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaC C(ûõ
+W
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaC C(	
+%0int"java.util.List#size()I*
+
+ljava.util.List2size()®•
+W
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaF F(
+%1boolean"java.util.List#isEmpty()Z*
+
+ljava.util.List2	isEmpty()*
+7
+1*ø
+1W
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaQ	 Q("a
+W
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaQ Q(
+"":
+ljava.util.ListB"
+main.Proportion

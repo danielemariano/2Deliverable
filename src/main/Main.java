@@ -12,9 +12,7 @@ import java.util.List;
 
 public class Main {
 
-	static String projName = "BOOKKEEPER";
-	//static String projName = "OPENJPA";
-	//static String projName = "MAHOUT";
+	static String projName = "MAHOUT"; //Progetti: [BOOKKEEPER, MAHOUT]
 	static Integer max = 1;
 	static Integer index;
 	static int releaseCounter = 1;

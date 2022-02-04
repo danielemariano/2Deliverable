@@ -34,9 +34,8 @@ import java.util.Set;
 
 public class GetDiffFromGit {
 
-	static String projName = "bookkeeper/";
-	//static String projName = "openJPA/";
-	//static String projName = "mahout/";
+	//static String projName = "bookkeeper/";
+	static String projName = "mahout/";
 	static URI path;
 	static String releaseString = "Release";
 	static String autori = "autori";

@@ -36,9 +36,8 @@ public class GetReleaseInfo {
 	  static Integer numVersions;
 	  static String releaseDateString = "releaseDate";
 	  static String versionString = "versions";
-	  static String projName ="BOOKKEEPER";
-	  //static String projName = "OPENJPA";
-	  //static String projName = "MAHOUT";
+	  //static String projName ="BOOKKEEPER";
+	  static String projName = "MAHOUT";
 	  static List<Class> auxList = new ArrayList<>();
 
 	  private GetReleaseInfo() {
