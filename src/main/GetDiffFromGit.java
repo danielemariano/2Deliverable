@@ -33,18 +33,17 @@ import java.util.List;
 import java.util.Set;
 
 public class GetDiffFromGit {
-
-	//static String projName = "bookkeeper/";
-	static String projName = "mahout/";
+	
+	static String projName = "bookkeeper/"; //Progetti: [bookkeeper, mahout]
 	static URI path;
 	static String releaseString = "Release";
 	static String autori = "autori";
 	static String nAuthString = "NAuth";
 	static String fileNameString = "FileName";
 	static String linesOfCodeAddedString = "LOC_added";
-	static String users_dir = "/Users";
-	static String root_dir = "/danielemariano";
-	static String git_dir = "/git/";
+	static String usersDir = "/Users";
+	static String rootDir = "/danielemariano";
+	static String gitDir = "/git/";
 	static String nRString = "NR";
 	URI uri = null;
 
@@ -78,7 +77,7 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 		int linesAdded;
 		String pathName = "";
 		try {
-			path =  new URI(users_dir + root_dir + git_dir);
+			path =  new URI(usersDir + rootDir + gitDir);
 			pathName = path.getPath();
 		}
 		catch(Exception e) {
@@ -167,8 +166,9 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 			RevWalk rw = new RevWalk(repository);
 			ObjectReader reader = rw.getObjectReader();
 			diffs = df.scan(new EmptyTreeIterator(), new CanonicalTreeParser(null, reader, rev.getTree()));
+			rw.close();
 		}
-
+		df.close();
 		return diffs;
 	}
 
@@ -190,7 +190,7 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 	public static JSONArray getMetrics(List<Release> releaseList) throws IOException, JSONException, NoHeadException, GitAPIException, ParseException{
 		String pathName = "";
 		try {
-			path =  new URI(users_dir + root_dir + git_dir);
+			path =  new URI(usersDir + rootDir + gitDir);
 			pathName = path.getPath();
 		}
 		catch(Exception e) {
@@ -255,7 +255,6 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 
 		return nR;
 	}
-
 
 	public static String getLocAdded(JSONArray commitJsonArray, int i, JSONObject releaseObject) throws JSONException {
 
@@ -355,5 +354,4 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
     		r.setClasses(newClasses);
     	}
     }
-
 }

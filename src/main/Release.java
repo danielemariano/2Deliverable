@@ -13,9 +13,7 @@ public class Release {
 	private List <Class> classes;
 	private List <Commit> commitList;
 	private Integer numOfBuggyClass;
-	
-	
-	
+		
 	public Release(String id, String name, Date date, Integer number, Commit commit) {
 	    this.id = id; 
 	    this.name = name;
@@ -31,8 +29,7 @@ public class Release {
 	
 	public String getId() {
 		return id;
-	}
-	
+	}	
 	
 	public String getName() {
 		return name;
@@ -49,16 +46,14 @@ public class Release {
 	public Commit getCommit() {
 		return commit;
 	}
-	
-	
+		
 	public List<Class> getClasses(){
 		return classes;
 	}
 	
 	public List<Commit> getCommitList(){
 		return commitList;
-	}
-	
+	}	
 	
 	public Integer getNumOfBuggyClass() {
 		return this.numOfBuggyClass;
@@ -87,8 +82,7 @@ public class Release {
 	public void setClasses(List<Class> classes) {
 		this.classes = classes;
 	}
-	
-	
+		
 	public void setCommitList(List<Commit> commitList) {
 		this.commitList = commitList;
 	}

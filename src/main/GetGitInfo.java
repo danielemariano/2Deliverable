@@ -12,15 +12,14 @@ import java.util.Date;
 import java.util.List;
 
 public class GetGitInfo {
-	//static String projName = "bookkeeper/";
-	static String projName = "mahout/";
+	static String projName = "bookkeeper/"; //Progetti: [bookkeeper, mahout]
 	static String commitString = "commit";
 	public static final String PROGRAM = "git log --date=iso-strict --name-status --stat HEAD --date-order --reverse";
 	static boolean done = false;
 
-		private GetGitInfo() {
+	private GetGitInfo() {
 
-		}
+	}
 
 	//Con questa funzione prendo una lista di commit (Oggetto Commit con id e data )dalla directory del progetto
 
@@ -59,9 +58,8 @@ public class GetGitInfo {
 			   	commit.setId(idList.get(i));
 			   	commit.setDate(dateList.get(i));
 			   	commitList.add(commit);
-			    }
+	    	}
 	    }
-
 
 	    final Process p2 = Runtime.getRuntime().exec(PROGRAM, null, dir);
 	    BufferedReader is2 = new BufferedReader(new InputStreamReader(p2.getInputStream()));
@@ -78,7 +76,6 @@ public class GetGitInfo {
 	    }
 	    return commitListFiller(commitList);
 	}
-
 
 	public static List<Commit> commitListFiller(List<Commit> commitList){
 		if (!commitList.isEmpty()) {
@@ -101,7 +98,6 @@ public class GetGitInfo {
 
 	    return commitList;
 	}
-
 
 	public static List<Ticket> setClassVersion(List <Ticket> ticket, List <Commit> commitList, List<Release> releases) throws IOException{
 		List <Ticket> ticketList = new ArrayList<>();
@@ -129,32 +125,24 @@ public class GetGitInfo {
 
 	}
 
+	public static List<Ticket> ticketListFiller(List<String> idList, List<Commit>commitList, Ticket t, List<Ticket> ticketList, List<Release> releases ){
+		for(String e: idList) {
+	    	for(Commit c: commitList) {
+	    		if(c.getId().equals(e)) {
+	    			t.setCommit(c);
+	    			GetJsonFromUrl.setFVOV(t, releases);
+			    	if(t.getOV()!= null && t.getFV() >= t.getOV() && !ticketList.contains(t)) {
+			    		ticketList.add(t);
+			   		}
+			   		List <Class> classes = (List<Class>) c.getClassList();
+			   		for(Class cl: classes) {
+			   			cl.setSingleTicket(t);
+		    		}
+		    		//setto la fixed version nelle classi della commit
+		    	}
+		    }
+    	}
+    	return ticketList;
+    }
+}
 
-	    public static List<Ticket> ticketListFiller(List<String> idList, List<Commit>commitList, Ticket t, List<Ticket> ticketList, List<Release> releases ){
-	    	 for(String e: idList) {
-			    	for(Commit c: commitList) {
-			    		if(c.getId().equals(e)) {
-			    			t.setCommit(c);
-			    			GetJsonFromUrl.setFVOV(t, releases);
-			    			if(t.getOV()!= null && t.getFV() >= t.getOV() && !ticketList.contains(t)) {
-			    					ticketList.add(t);
-			    			}
-			    			List <Class> classes = c.getClassList();
-			    			for(Class cl: classes) {
-			    				cl.setSingleTicket(t);
-			    			}
-			    			//setto la fixed version nelle classi della commit
-			    		}
-			    	}
-			    }
-	    	 return ticketList;
-	    }
-	}
-
-
-
-
-
-
-
-//--pretty=format:%H --grep " + param + "--date=iso-strict --name-status  --stat HEAD --abbrev-commit --date-order

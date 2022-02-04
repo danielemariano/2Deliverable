@@ -12,10 +12,7 @@ package main;
  */
 
 import weka.attributeSelection.BestFirst;
-//import required classes
 import weka.attributeSelection.CfsSubsetEval;
-import weka.attributeSelection.GreedyStepwise;
-import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Classifier;
 import weka.classifiers.CostMatrix;
 import weka.classifiers.Evaluation;
@@ -30,7 +27,6 @@ import weka.filters.supervised.instance.SMOTE;
 import weka.filters.supervised.instance.SpreadSubsample;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
-import weka.classifiers.evaluation.*;
 import weka.classifiers.lazy.IBk;
 
 import java.io.BufferedWriter;
@@ -41,11 +37,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-
-
-
-
 public class TestWekaEasy{
 	
 	static List<Integer> precision = new ArrayList<>();
@@ -55,14 +46,11 @@ public class TestWekaEasy{
 	static String name = "";
 	static String noSamplingString = "NoSampling";
 	private static final Logger LOGGER = Logger.getLogger(TestWekaEasy.class.getName());
-
-	
 	
 	private TestWekaEasy() {
 		
 	}
-	
-	
+		
 	public static String csvForWeka(List <Release> releases, int counter) throws IOException {
 		String name = "/Users/danielemariano/Desktop/ISW2/Res/csvForWeka/release" + counter + ".csv";
 		try (BufferedWriter br = new BufferedWriter(new FileWriter(name))) {
@@ -126,8 +114,7 @@ public class TestWekaEasy{
 		}
 		return name;
 	}
-	
-	
+		
 	private static CostMatrix createCostMatrix(double weightFalsePositive, double weightFalseNegative) {
 	    CostMatrix costMatrix = new CostMatrix(2);
 	    costMatrix.setCell(0, 0, 0.0);
@@ -136,8 +123,7 @@ public class TestWekaEasy{
 	    costMatrix.setCell(1, 1, 0.0);
 	    return costMatrix;
 	}
-	
-	
+		
 	public static WekaData applyCostSensitive(Classifier c,Instances training,Instances testing,  int z, Boolean treshold, int tresholdValue){
 		Evaluation eval = null; 
 		WekaData costSens = new WekaData();
@@ -167,14 +153,10 @@ public class TestWekaEasy{
 		catch (Exception e) {
 			 e.printStackTrace();
 			 return costSens;
-		}
-			
+		}			
 	}
 	
-	
-	
-	//I metodi makeTrainingSet e makeTesting set implementano il Walk Forward
-	
+	//I metodi makeTrainingSet e makeTesting set implementano il Walk Forward	
 	public static List<String> makeTrainingSet(List<Release> releases) {
 		List<String> trainingSet = new ArrayList<>();
 		String path = "";
@@ -193,7 +175,6 @@ public class TestWekaEasy{
 		
 	}
 	
-	
 	public static List<String> makeTestingSet(List<Release> releases) {
 		List<String> testingSet = new ArrayList<>();
 		String path = "";
@@ -210,9 +191,7 @@ public class TestWekaEasy{
 		return testingSet;
 		
 	}
-	
-	
-	
+		
 	public static WekaData smoteSampling (Instances training, Instances testing, Integer defectiveInTraining, Classifier c, int z) {
 		FilteredClassifier fc = new FilteredClassifier();
 		WekaData smoteData = new WekaData();
@@ -248,8 +227,7 @@ public class TestWekaEasy{
 			 return smoteData;
 		 }
 	}
-	
-	
+		
 	public static WekaData overSampling(Instances training, Instances testing, Integer defectiveInTraining, Classifier c, int z)  {
 		FilteredClassifier fc = new FilteredClassifier(); 
 		Resample resample = new Resample();
@@ -287,8 +265,7 @@ public class TestWekaEasy{
 			 return oS;
 		}		
 	}
-		
-	
+			
 	public static WekaData underSampling(Instances training, Instances testing, Classifier c, int z) {
 		Resample resample = new Resample();
 		FilteredClassifier fc = null;
@@ -318,10 +295,8 @@ public class TestWekaEasy{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return uS;
-		
+		return uS;		
 	}
-	
 	
 	public static List<WekaData> featuresSelection(Instances training, Instances testing, int defectiveInTraining, Classifier c, int z, List<WekaData> wekaList) {
 		AttributeSelection filter = new AttributeSelection();
@@ -373,15 +348,9 @@ public class TestWekaEasy{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	    
-		
 		return wekaList;
-		
-		
 	}
-	
-	
+		
 	public static Classifier getClassifier(int i) {
 		if(i == 0) {
 			NaiveBayes classifier = new NaiveBayes();
@@ -400,12 +369,10 @@ public class TestWekaEasy{
 			return classifier;
 		}
 	}
-	
-	
+		
 	public static List<WekaData> wekaAction(String testingSet, String trainingSet, int z, int defectiveInTraining) {
 		if(defectiveInTraining == 0) {
-			defectiveInTraining = 1;
-			
+			defectiveInTraining = 1;	
 		}
 		Evaluation evalClass = null;
 		Instances training = null;
@@ -451,10 +418,7 @@ public class TestWekaEasy{
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		return wekaList;
-	}
-	
-	
+	}	
 }
