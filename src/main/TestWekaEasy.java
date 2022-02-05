@@ -417,7 +417,7 @@ public class TestWekaEasy{
 				LOGGER.log(Level.INFO, "Recall no filter = "+evalClass.recall(1)+ "\n");
 			}
 		} catch (Exception e) {
-			LOGGER.log(Level.INFO, "context", e);
+			LOGGER.log(Level.INFO, CONTEXT, e);
 		}		
 		return wekaList;
 	}	
