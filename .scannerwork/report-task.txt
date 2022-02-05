@@ -3,5 +3,5 @@ projectKey=danielemariano_2Deliverable
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.26521
 dashboardUrl=https://sonarcloud.io/dashboard?id=danielemariano_2Deliverable
-ceTaskId=AX7KRoIJnUfAgfsQhtNw
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AX7KRoIJnUfAgfsQhtNw
+ceTaskId=AX7KVt8qTFete-VxkEwF
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AX7KVt8qTFete-VxkEwF

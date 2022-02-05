@@ -46,6 +46,7 @@ public class TestWekaEasy{
 	static String name = "";
 	static String noSamplingString = "NoSampling";
 	private static final Logger LOGGER = Logger.getLogger(TestWekaEasy.class.getName());
+	private static final String CONTEXT = "context";
 	
 	private TestWekaEasy() {
 		
@@ -151,7 +152,7 @@ public class TestWekaEasy{
 			return costSens;
 		 }
 		catch (Exception e) {
-			LOGGER.log(Level.INFO, "context", e);
+			LOGGER.log(Level.INFO, CONTEXT, e);
 			 return costSens;
 		}			
 	}
@@ -166,7 +167,7 @@ public class TestWekaEasy{
 				s = csvForWeka(releases.subList(0,i),i);
 				path = CsvToArff.arffCreation(s);
 			} catch (IOException e) {
-				LOGGER.log(Level.INFO, "context", e);
+				LOGGER.log(Level.INFO, CONTEXT, e);
 			}			
 			trainingSet.add(path);
 		}
@@ -183,7 +184,7 @@ public class TestWekaEasy{
 				s = csvForWeka(releases.subList(i, i+1),i+10);
 				path = CsvToArff.arffCreation(s);
 			} catch (IOException e) {
-				LOGGER.log(Level.INFO, "context", e);
+				LOGGER.log(Level.INFO, CONTEXT, e);
 			}		
 			testingSet.add(path);
 		}
@@ -222,7 +223,7 @@ public class TestWekaEasy{
 			return smoteData;
 		 }
 		 catch (Exception e) {
-			 LOGGER.log(Level.INFO, "context", e);
+			 LOGGER.log(Level.INFO, CONTEXT, e);
 			 return smoteData;
 		 }
 	}
@@ -260,7 +261,7 @@ public class TestWekaEasy{
 			return oS;
 		}
 		catch (Exception e) {
-			 LOGGER.log(Level.INFO, "context", e);
+			 LOGGER.log(Level.INFO, CONTEXT, e);
 			 return oS;
 		}		
 	}
@@ -292,7 +293,7 @@ public class TestWekaEasy{
 			LOGGER.log(Level.INFO, "Precision undersampled = "+eval.precision(1)+ "\n");
 			LOGGER.log(Level.INFO, "Recall undersampled = "+eval.recall(1)+ "\n");
 		} catch (Exception e) {
-			LOGGER.log(Level.INFO, "context", e);
+			LOGGER.log(Level.INFO, CONTEXT, e);
 		}
 		return uS;		
 	}

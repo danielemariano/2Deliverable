@@ -50,6 +50,7 @@ public class GetDiffFromGit {
 	URI uri = null;
 	
 	private static final Logger LOGGER = Logger.getLogger(GetDiffFromGit.class.getName());
+	private static final String CONTEXT = "context";
 
 	private GetDiffFromGit(){
 	
@@ -70,7 +71,7 @@ public class GetDiffFromGit {
 		} catch (MissingObjectException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-			LOGGER.log(Level.INFO, "context", e);
+			LOGGER.log(Level.INFO, CONTEXT, e);
 		}
 		return linesAdded;
 	}
@@ -85,7 +86,7 @@ public class GetDiffFromGit {
 			pathName = path.getPath();
 		}
 		catch(Exception e) {
-			LOGGER.log(Level.INFO, "context", e);
+			LOGGER.log(Level.INFO, CONTEXT, e);
 		}
 
 		JSONObject jsonDataset = new JSONObject();
@@ -122,7 +123,7 @@ public class GetDiffFromGit {
 	        	}
 
 			} catch (IOException e1) {
-				LOGGER.log(Level.INFO, "context", e1);
+				LOGGER.log(Level.INFO, CONTEXT, e1);
 			}
 		}
 		return jsonArray;
@@ -139,7 +140,7 @@ public class GetDiffFromGit {
 	    	  }
 	    }
 	    catch (IOException e) {
-			LOGGER.log(Level.INFO, "context", e);
+			LOGGER.log(Level.INFO, CONTEXT, e);
 	    }
 	    finally {
 	    	reader.close(); 
@@ -198,7 +199,7 @@ public class GetDiffFromGit {
 			pathName = path.getPath();
 		}
 		catch(Exception e) {
-			LOGGER.log(Level.INFO, "context", e);
+			LOGGER.log(Level.INFO, CONTEXT, e);
 		}
 
 		FileRepositoryBuilder builder = new FileRepositoryBuilder();
