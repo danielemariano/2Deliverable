@@ -95,8 +95,7 @@ public class CsvMaker {
 				sb2.append(w.getEval().kappa());
 				sb2.append("\n");
 				br.write(sb2.toString());
-				}
-			}	
-		
+			}
+		}	
 	}
 }

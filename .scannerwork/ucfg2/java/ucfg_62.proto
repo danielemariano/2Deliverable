@@ -1,11 +1,11 @@
 
 'main.Proportion#getP(Ljava/util/List;)IW
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaB B("10*á
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.java@ @("10*á
 6W
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaI I(†
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaG G(†
 ù
 W
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaI I(
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaG G(
 %3java.lang.Integer"
 __arrayGet*
 
@@ -14,10 +14,10 @@ __arrayGet*
 7
 1*ä
 7W
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaH H(†
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaF F(†
 ù
 W
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaH H(
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaF F(
 %2java.lang.Integer"
 __arrayGet*
 
@@ -27,23 +27,23 @@ __arrayGet*
 7
 1*±
 10W
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaC C(ûõ
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaA A(ûõ
 W
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaC C(	
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaA A(	
 %0int"java.util.List#size()I*
 
 ljava.util.List2size()®•
 W
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaF F(
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaD D(
 %1boolean"java.util.List#isEmpty()Z*
 
 ljava.util.List2	isEmpty()*
 7
 1*ø
 1W
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaQ	 Q("a
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaO	 O("a
 W
-M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaQ Q(
+M/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/Proportion.javaO O(
 "":
 ljava.util.ListB"
 main.Proportion

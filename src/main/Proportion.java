@@ -25,10 +25,8 @@ public class Proportion {
 				} else {
 
 					computeP(ticketList.get(i));
-				}
-				
-			}
-			
+				}		
+			}	
 		}
 	}
 	

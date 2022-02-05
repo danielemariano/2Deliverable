@@ -1,16 +1,19 @@
 
 Dmain.GetReleaseInfo#containsName(Ljava/util/List;Ljava/lang/Class;)Z]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java• •(&"2*œ
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java‘ ‘(&"2*œ
 2]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java™ ™(†
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java”
+ ”(†
 ƒ
 ]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java™ ™(
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java”
+ ”(
 ejava.lang.Class"__id*
 ""¦
 £
 ]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java™ ™(
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java”
+ ”(
 ejava.lang.Class"
 __arrayGet*
 
@@ -19,19 +22,22 @@ __arrayGet*
 7
 1*ó
 7]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.javaš š(ÊÇ
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java•
+ •(ÊÇ
 ]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.javaš š(
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java•
+ •(
 %0java.lang.String"+java.lang.Class#getName()Ljava/lang/String;*
 
 ejava.lang.Class2	getName()ÊÇ
 ]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.javaš  š(+
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java• •((
 %1java.lang.String"+java.lang.Class#getName()Ljava/lang/String;*
 
 cjava.lang.Class2	getName()ïì
 ]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.javaš š(,
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java•
+ •()
 %2boolean",java.lang.String#equals(Ljava/lang/Object;)Z*
 
 %0java.lang.String*
@@ -39,9 +45,9 @@ Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.ja
 %1java.lang.String2equals(Ljava/lang/Object;)*
 2*Ë
 1]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java¬ ¬("g
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java¤ ¤("g
 ]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java¬ ¬(
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetReleaseInfo.java¤ ¤(
 "":
 listjava.util.List:
 cjava.lang.ClassB"

@@ -1,14 +1,11 @@
 package main;
 
-
-
 import java.io.File;
 import java.io.IOException;
 
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;
 import weka.core.converters.CSVLoader;
-
 
 public class CsvToArff {
 	
@@ -45,6 +42,5 @@ public class CsvToArff {
 		}
 		
 		return newPath;
-	}
-	
+	}	
 }

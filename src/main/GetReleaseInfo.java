@@ -75,10 +75,9 @@ public class GetReleaseInfo {
 		       releaseNames.get(releases.get(i)),releaseID.get(releases.get(i))));
 
 		   }
+		   
 		   return releaseList;
       }
-
-
 
 	  public static void addRelease(String strDate, String name, String id) {
 		      LocalDate date = LocalDate.parse(strDate);
@@ -89,9 +88,6 @@ public class GetReleaseInfo {
 		      releaseID.put(dateTime, id);
 		   }
 
-
-
-
 	   public static Release customRelease(Integer index, String strDate, String name, String id) throws ParseException {
 		   	  Release release = new Release();
 		   	  Release.setNumber(release, index);
@@ -99,6 +95,7 @@ public class GetReleaseInfo {
 		      Release.setId(release,id);
 		      Date releaseDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(strDate);
 		      Release.setDate(release, releaseDate);
+		      
 		      return release;
 		   }
 
@@ -107,22 +104,22 @@ public class GetReleaseInfo {
 	      try(InputStream is = new URL(url).openStream();) {
 	         BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
 	         String jsonText = readAll(rd);
+	         
 	         return new JSONObject(jsonText);
 	       }
 	   }
 
 	   private static String readAll(Reader rd) throws IOException {
-		      StringBuilder sb = new StringBuilder();
-		      int cp;
-		      while ((cp = rd.read()) != -1) {
-		         sb.append((char) cp);
-		      }
-		      return sb.toString();
+		   StringBuilder sb = new StringBuilder();
+		   int cp;
+		   while ((cp = rd.read()) != -1) {
+			   sb.append((char) cp);
 		   }
-
+		   
+		   return sb.toString();
+	   }
 
 	   public static List<String> versionArray(String url, int i, int j, String getter) throws IOException, JSONException, ParseException {
-
 			JSONObject json = readJsonFromUrl(url);
 			JSONArray issues = json.getJSONArray("issues");
 			int counter = 0;
@@ -141,77 +138,73 @@ public class GetReleaseInfo {
 			       }
 			}
 			index = i;
+			
 			return array;
 		}
 
-
 	   public static boolean containsName(List<Class> list, Class c){
-		   	  boolean q = false;
-
-		   	  int counter = 0;
-		   	  for (Class e: list) {
-		   		  if (e.getName().equals(c.getName())) {
-		   			  q = true;
-		   			  e.setRecurrence(e.getRecurrence() + 1);
-	   				  e.setSumChg(e.getSumChg() + c.getChg());
-		   			  if(e.getMaxChg() < c.getChg()) {
-		   				  e.setMaxChg(c.getChg());
-
-		   			  }
-
-		   		  }
-		   		  else
-		   		  {
-		   			  c.setMaxChg(c.getChg());
-		   			  c.setRecurrence(c.getRecurrence() + 1);
-	   				  c.setSumChg(c.getSumChg() + c.getChg());
-		   		  }
-		   		  counter = counter +1;
-		   	  }
-		   	  return q;
+		   boolean q = false;
+		   int counter = 0;
+		   for (Class e: list) {
+			   if (e.getName().equals(c.getName())) {
+				   q = true;
+				   e.setRecurrence(e.getRecurrence() + 1);
+				   e.setSumChg(e.getSumChg() + c.getChg());
+				   if(e.getMaxChg() < c.getChg()) {
+					   e.setMaxChg(c.getChg());
+				   }
+			   } else {
+				   c.setMaxChg(c.getChg());
+				   c.setRecurrence(c.getRecurrence() + 1);
+				   c.setSumChg(c.getSumChg() + c.getChg());
+			   }
+			   counter = counter +1;
 		   }
+		   	
+		   return q;
+	   }
 
-	   	   public static void auxListFiller(List<Commit> commitList, int firstRef, int lastRef){
-	   		for (Commit commit: commitList) {
-  			  if (commit.getSequenceNumber() > firstRef && commit.getSequenceNumber() <= lastRef && commit.getClassList() != null) {
-  				  for (Class c: commit.getClassList()) {
-  						 if (auxList.isEmpty() || !containsName(auxList, c)) {
-  							 auxList.add(c);
-  					  }
-  				  }
-  			  }
-	   		}
-	   	  }
-
-		   public static void setClassToRelease(List<Release> releaseList, List<Commit> commitList) {
-		    	  int firstRef = 0;
-		    	  List<Class> releaseClassList = new ArrayList<>();
-		    	  for (int i = 0; i<releaseList.size()/2; i++) {
-		    		  int lastRef = releaseList.get(i).getCommit().getSequenceNumber();
-		    		  auxListFiller(commitList, firstRef, lastRef);
-		    		  firstRef = lastRef;
-		    		  for (Class e: auxList) {
-		    			  releaseClassList.add(e);
-		    		  }
-		    		  releaseList.get(i).setClasses(releaseClassList);
-		    		  releaseClassList = new ArrayList<>();
-		    	  }
+	   public static void auxListFiller(List<Commit> commitList, int firstRef, int lastRef){
+		   for (Commit commit: commitList) {
+			   if (commit.getSequenceNumber() > firstRef && commit.getSequenceNumber() <= lastRef && commit.getClassList() != null) {
+				   for (Class c: commit.getClassList()) {
+					   if (auxList.isEmpty() || !containsName(auxList, c)) {
+						   auxList.add(c);
+  					   }
+  				   }
+  			   }
 		   }
+	   }
 
-		   public static void assignCommitListToRelease(List<Release> releaseList, List<Commit> commitList)  {
-		    	  int firstRef = 0;
-		    	  int lastRef = 0;
-		    	  List<Commit> temp = new ArrayList<>();
-		    	  for (Release release: releaseList) {
-		    		  lastRef = release.getCommit().getSequenceNumber();
-		    		  for(Commit c: commitList) {
-		    			  if (c.getSequenceNumber() > firstRef && c.getSequenceNumber() <= lastRef) {
-		    				  temp.add(c);
-		    			  }
-		    		  }
-		    		  firstRef = lastRef;
-		    		  release.setCommitList(temp);
-		    		  temp = new ArrayList<>();
-		    	  }
+	   public static void setClassToRelease(List<Release> releaseList, List<Commit> commitList) {
+		   int firstRef = 0;
+		   List<Class> releaseClassList = new ArrayList<>();
+		   for (int i = 0; i<releaseList.size()/2; i++) {
+			   int lastRef = releaseList.get(i).getCommit().getSequenceNumber();
+			   		auxListFiller(commitList, firstRef, lastRef);
+			   		firstRef = lastRef;
+			   		for (Class e: auxList) {
+			   			releaseClassList.add(e);
+		    		}
+			   		releaseList.get(i).setClasses(releaseClassList);
+		    		releaseClassList = new ArrayList<>();
 		   }
+	   }
+
+	   public static void assignCommitListToRelease(List<Release> releaseList, List<Commit> commitList)  {
+		   int firstRef = 0;
+		   int lastRef = 0;
+		   List<Commit> temp = new ArrayList<>();
+		   for (Release release: releaseList) {
+			   lastRef = release.getCommit().getSequenceNumber();
+			   for(Commit c: commitList) {
+				   if (c.getSequenceNumber() > firstRef && c.getSequenceNumber() <= lastRef) {
+					   temp.add(c);
+				   }
+			   }
+			   firstRef = lastRef;
+			   release.setCommitList(temp);
+			   temp = new ArrayList<>();
+		   }
+	   }
  }

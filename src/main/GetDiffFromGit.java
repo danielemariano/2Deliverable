@@ -47,31 +47,31 @@ public class GetDiffFromGit {
 	static String nRString = "NR";
 	URI uri = null;
 
-private GetDiffFromGit(){
-
-}
-
-public static boolean countChecker (Set<String> countDevelopers, RevCommit rev) {
-	return countDevelopers.isEmpty() || !countDevelopers.contains(rev.getAuthorIdent().getEmailAddress().toString());
-}
-
-public static int linesAddedCycler(DiffEntry diff, DiffFormatter df) {
-	int linesAdded = 0;
-	try {
-		for(Edit edit : df.toFileHeader(diff).toEditList()) {
-			linesAdded += edit.getEndB() - edit.getBeginB();
-		}
-	} catch (CorruptObjectException e) {
-		e.printStackTrace();
-	} catch (MissingObjectException e) {
-		e.printStackTrace();
-	} catch (IOException e) {
-		e.printStackTrace();
+	private GetDiffFromGit(){
+	
 	}
-	return linesAdded;
-}
+	
+	public static boolean countChecker (Set<String> countDevelopers, RevCommit rev) {
+		return countDevelopers.isEmpty() || !countDevelopers.contains(rev.getAuthorIdent().getEmailAddress().toString());
+	}
+	
+	public static int linesAddedCycler(DiffEntry diff, DiffFormatter df) {
+		int linesAdded = 0;
+		try {
+			for(Edit edit : df.toFileHeader(diff).toEditList()) {
+				linesAdded += edit.getEndB() - edit.getBeginB();
+			}
+		} catch (CorruptObjectException e) {
+			e.printStackTrace();
+		} catch (MissingObjectException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return linesAdded;
+	}
 
-public static JSONArray getPerCommitMetrics(Repository repository, Release release, Set<String> countDevelopers) throws IOException, JSONException {
+	public static JSONArray getPerCommitMetrics(Repository repository, Release release, Set<String> countDevelopers) throws IOException, JSONException {
 
 		int countRev = 0;
 		int linesAdded;
@@ -126,22 +126,19 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 
 
 	public static long countLines(String fileName, String pathName) {
-	      long lines = 0;
-	      
-	      try(BufferedReader reader = new BufferedReader(new FileReader(pathName + projName + fileName))) {
-	    	  while(reader.readLine() != null) {
+		long lines = 0;
+	    BufferedReader reader = null;
+	    try { 
+	    	reader = new BufferedReader(new FileReader(pathName + projName + fileName));
+	    	while(reader.readLine() != null) {
 	    		  lines++;
 	    	  }
-	      }
-	      
-	      catch (IOException e) {
-	          e.printStackTrace();
-	      }
-	      
-	      return lines;
-
+	    }
+	    catch (IOException e) {
+	    	e.printStackTrace();
+	    }
+	    return lines;
 	 }
-
 
 	public static RevCommit castToRevCommit(Repository repository, Commit commit) throws IOException {
 		RevCommit rev = null;
@@ -210,21 +207,20 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
         	countDevelopers = new HashSet<>();
         	commitJsonArray = getPerCommitMetrics(repository, r, countDevelopers);
 	    }
+        
         return generateJsonArray(commitJsonArray);
 	}
 
 	public static String getLoc(JSONArray commitJsonArray, int i, JSONObject releaseObject) throws JSONException {
-
-			String loc;
-
-			if (commitJsonArray.getJSONObject(i).get("LOC").equals(releaseObject.get("LOC"))) {
-				loc = commitJsonArray.getJSONObject(i).get("LOC").toString();
-			} else {
-				loc = ((Integer) Math.max(Integer.parseInt(commitJsonArray.getJSONObject(i).get("LOC").toString()), Integer.parseInt(releaseObject.get("LOC").toString()))).toString();
-			}
-
-			return loc;
+		String loc;
+		if (commitJsonArray.getJSONObject(i).get("LOC").equals(releaseObject.get("LOC"))) {
+			loc = commitJsonArray.getJSONObject(i).get("LOC").toString();
+		} else {
+			loc = ((Integer) Math.max(Integer.parseInt(commitJsonArray.getJSONObject(i).get("LOC").toString()), Integer.parseInt(releaseObject.get("LOC").toString()))).toString();
 		}
+		
+		return loc;
+	}
 
 	public static String getNAuth(JSONArray commitJsonArray, int i, JSONObject releaseObject) throws JSONException {
 		Integer nAuth = Integer.parseInt(releaseObject.get(nAuthString).toString());
@@ -244,9 +240,7 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 	}
 
 	public static String getNR(JSONArray commitJsonArray, int i, JSONObject releaseObject) throws JSONException {
-
 		String nR;
-
 		if (commitJsonArray.getJSONObject(i).get(nRString).equals(releaseObject.get(nRString))) {
 			nR = commitJsonArray.getJSONObject(i).get(nRString).toString();
 		} else {
@@ -257,9 +251,7 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 	}
 
 	public static String getLocAdded(JSONArray commitJsonArray, int i, JSONObject releaseObject) throws JSONException {
-
 		Integer locAdded = Integer.parseInt(commitJsonArray.getJSONObject(i).get("LOC").toString()) + Integer.parseInt(releaseObject.get("LOC").toString());
-
 		return locAdded.toString();
 	}
 
@@ -317,7 +309,6 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
     		if (temp > max) {
     			max = temp;
     		}
-
     	}
     	for (Class c: r.getClasses()) {
     		c.setMAXLOCAdded(max);

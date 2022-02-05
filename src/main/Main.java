@@ -9,14 +9,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 public class Main {
 
 	static String projName = "BOOKKEEPER"; //Progetti: [BOOKKEEPER, MAHOUT]
 	static Integer max = 1;
 	static Integer index;
 	static int releaseCounter = 1;
-
 
 	public static void csvVersionArray(List <Release> releases) throws IOException {
 		try (BufferedWriter br = new BufferedWriter(new FileWriter("/Users/danielemariano/Desktop/doc/Releases.csv"))) {
@@ -93,12 +91,6 @@ public class Main {
 		}
 	}
 
-
-
-
-
-
-
 	public static int getPercentageDefectiveInTraining(List<Release> releases, int z) {
 		int counter = 0;
 		int releaseCounter = 1;
@@ -116,7 +108,6 @@ public class Main {
 			}
 		return counter;
 	}
-
 
 	public static String csvFinal(List <Release> releases, int counter) throws IOException {
 		String name = "/Users/danielemariano/Desktop/ISW2/Res/csvFinal" + counter + ".csv";
@@ -190,7 +181,6 @@ public class Main {
 		return name;
 	}
 
-
 	public static String getCostName(WekaData w) {
 		String s = "";
 		if(w.getCostSensitive() == 0) {
@@ -204,7 +194,6 @@ public class Main {
 		}
 		return s;
 	}
-
 
 	public static void main(String[] args) throws Exception {
 		Integer i = 0;

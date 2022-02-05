@@ -171,8 +171,7 @@ public class TestWekaEasy{
 			trainingSet.add(path);
 		}
 		
-		return trainingSet;
-		
+		return trainingSet;	
 	}
 	
 	public static List<String> makeTestingSet(List<Release> releases) {
@@ -188,8 +187,8 @@ public class TestWekaEasy{
 			}		
 			testingSet.add(path);
 		}
-		return testingSet;
 		
+		return testingSet;
 	}
 		
 	public static WekaData smoteSampling (Instances training, Instances testing, Integer defectiveInTraining, Classifier c, int z) {

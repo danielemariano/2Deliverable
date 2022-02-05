@@ -20,7 +20,6 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-
 public class GetJsonFromUrl {
 
 	static Integer max = 1;
@@ -32,6 +31,7 @@ public class GetJsonFromUrl {
 	static String totalString = "total";
 	
 	private GetJsonFromUrl() {
+		
 	}
 	
 	public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
