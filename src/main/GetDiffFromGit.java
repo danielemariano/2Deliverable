@@ -31,6 +31,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 public class GetDiffFromGit {
 	
@@ -46,6 +48,8 @@ public class GetDiffFromGit {
 	static String gitDir = "/git/";
 	static String nRString = "NR";
 	URI uri = null;
+	
+	private static final Logger LOGGER = Logger.getLogger(GetDiffFromGit.class.getName());
 
 	private GetDiffFromGit(){
 	
@@ -66,7 +70,7 @@ public class GetDiffFromGit {
 		} catch (MissingObjectException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.INFO, "context", e);
 		}
 		return linesAdded;
 	}
@@ -81,7 +85,7 @@ public class GetDiffFromGit {
 			pathName = path.getPath();
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			LOGGER.log(Level.INFO, "context", e);
 		}
 
 		JSONObject jsonDataset = new JSONObject();
@@ -118,7 +122,7 @@ public class GetDiffFromGit {
 	        	}
 
 			} catch (IOException e1) {
-				e1.printStackTrace();
+				LOGGER.log(Level.INFO, "context", e1);
 			}
 		}
 		return jsonArray;
@@ -135,7 +139,7 @@ public class GetDiffFromGit {
 	    	  }
 	    }
 	    catch (IOException e) {
-	    	e.printStackTrace();
+			LOGGER.log(Level.INFO, "context", e);
 	    }
 	    finally {
 	    	reader.close(); 
@@ -194,7 +198,7 @@ public class GetDiffFromGit {
 			pathName = path.getPath();
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			LOGGER.log(Level.INFO, "context", e);
 		}
 
 		FileRepositoryBuilder builder = new FileRepositoryBuilder();

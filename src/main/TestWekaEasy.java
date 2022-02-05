@@ -151,7 +151,7 @@ public class TestWekaEasy{
 			return costSens;
 		 }
 		catch (Exception e) {
-			 e.printStackTrace();
+			LOGGER.log(Level.INFO, "context", e);
 			 return costSens;
 		}			
 	}
@@ -166,7 +166,7 @@ public class TestWekaEasy{
 				s = csvForWeka(releases.subList(0,i),i);
 				path = CsvToArff.arffCreation(s);
 			} catch (IOException e) {
-				e.printStackTrace();
+				LOGGER.log(Level.INFO, "context", e);
 			}			
 			trainingSet.add(path);
 		}
@@ -183,7 +183,7 @@ public class TestWekaEasy{
 				s = csvForWeka(releases.subList(i, i+1),i+10);
 				path = CsvToArff.arffCreation(s);
 			} catch (IOException e) {
-				e.printStackTrace();
+				LOGGER.log(Level.INFO, "context", e);
 			}		
 			testingSet.add(path);
 		}
@@ -222,7 +222,7 @@ public class TestWekaEasy{
 			return smoteData;
 		 }
 		 catch (Exception e) {
-			 e.printStackTrace();
+			 LOGGER.log(Level.INFO, "context", e);
 			 return smoteData;
 		 }
 	}
@@ -260,7 +260,7 @@ public class TestWekaEasy{
 			return oS;
 		}
 		catch (Exception e) {
-			 e.printStackTrace();
+			 LOGGER.log(Level.INFO, "context", e);
 			 return oS;
 		}		
 	}
@@ -292,7 +292,7 @@ public class TestWekaEasy{
 			LOGGER.log(Level.INFO, "Precision undersampled = "+eval.precision(1)+ "\n");
 			LOGGER.log(Level.INFO, "Recall undersampled = "+eval.recall(1)+ "\n");
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.log(Level.INFO, "context", e);
 		}
 		return uS;		
 	}
@@ -345,7 +345,7 @@ public class TestWekaEasy{
 			wekaList.add(costSensitiveTreshold5);
 			wekaList.add(costSensitive);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.log(Level.INFO, "context", e);
 		}
 		return wekaList;
 	}
@@ -416,7 +416,7 @@ public class TestWekaEasy{
 				LOGGER.log(Level.INFO, "Recall no filter = "+evalClass.recall(1)+ "\n");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.log(Level.INFO, "context", e);
 		}		
 		return wekaList;
 	}	

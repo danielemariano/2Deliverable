@@ -7,7 +7,12 @@ import weka.core.Instances;
 import weka.core.converters.ArffSaver;
 import weka.core.converters.CSVLoader;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class CsvToArff {
+	
+	private static final Logger LOGGER = Logger.getLogger(CsvToArff.class.getName());
 	
 	private CsvToArff() {
 		
@@ -24,7 +29,7 @@ public class CsvToArff {
 				loader.setSource(projectClasses);
 				data = loader.getDataSet();//get instances object
 			} catch (IOException e) {
-				e.printStackTrace();
+				LOGGER.log(Level.INFO, "context", e);
 			}
 		    // save ARFF
 		    ArffSaver saver = new ArffSaver();
@@ -37,7 +42,7 @@ public class CsvToArff {
 				saver.setFile(new File(newPath));
 				saver.writeBatch();
 			} catch (IOException e) {
-				e.printStackTrace();
+				LOGGER.log(Level.INFO, "context", e);
 			}
 		}
 		
