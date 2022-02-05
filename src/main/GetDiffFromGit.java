@@ -126,18 +126,19 @@ public class GetDiffFromGit {
 
 
 	public static long countLines(String fileName, String pathName) {
-		long lines = 0;
 	    BufferedReader reader = null;
 	    try { 
+			long lines = 0;
 	    	reader = new BufferedReader(new FileReader(pathName + projName + fileName));
 	    	while(reader.readLine() != null) {
 	    		  lines++;
 	    	  }
+		    reader.close(); 
+		    return lines;
 	    }
 	    catch (IOException e) {
 	    	e.printStackTrace();
 	    }
-	    return lines;
 	 }
 
 	public static RevCommit castToRevCommit(Repository repository, Commit commit) throws IOException {
