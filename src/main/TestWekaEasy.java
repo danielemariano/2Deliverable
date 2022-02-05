@@ -346,7 +346,7 @@ public class TestWekaEasy{
 			wekaList.add(costSensitiveTreshold5);
 			wekaList.add(costSensitive);
 		} catch (Exception e) {
-			LOGGER.log(Level.INFO, "context", e);
+			LOGGER.log(Level.INFO, CONTEXT, e);
 		}
 		return wekaList;
 	}
