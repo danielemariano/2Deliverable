@@ -142,9 +142,6 @@ public class GetDiffFromGit {
 	    catch (IOException e) {
 			LOGGER.log(Level.INFO, CONTEXT, e);
 	    }
-	    finally {
-	    	reader.close(); 
-	    }
 	    return lines;
 	 }
 
