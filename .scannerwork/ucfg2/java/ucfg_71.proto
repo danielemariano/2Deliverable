@@ -1,7 +1,21 @@
 
 Emain.GetDiffFromGit#countLines(Ljava/lang/String;Ljava/lang/String;)J]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java€ €("9*Ì
-5]
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java€ €("10*Ë
+2]
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java‰ ‰("g
+]
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java‰ ‰(
+""*¦
+3]
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.javaˆ ˆ(¼¹
+]
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.javaˆ ˆ(
+
+%8void"java.io.BufferedReader#close()V*"
+ 
+readerjava.io.BufferedReader2close()*
+2*Ì
+6]
 Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java… …(ßÜ
 ]
 Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java… …(
@@ -9,9 +23,9 @@ Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.ja
  
 readerjava.io.BufferedReader2
 readLine()*
-5
-1*”
-6]
+3
+6*”
+7]
 Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java„ „(Qª
 §
 ]
@@ -19,8 +33,8 @@ Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.ja
 readerjava.io.BufferedReader"__id*
 
 %5java.io.BufferedReader*
-5*Û
-7]
+6*Û
+8]
 Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java„ „(Q˜•
 ]
 Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java„ „(!
@@ -33,9 +47,9 @@ Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.ja
 %5java.io.BufferedReader*
 
 %3java.io.FileReader*
-6*÷
-8]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java„1 „(9§
+7*÷
+9]
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.javaƒ ƒ(§
 ¤
 ]
 Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java„< „(D
@@ -70,20 +84,15 @@ Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.ja
 %3java.io.FileReader*
 
 %2java.lang.String*
-7*ü
-9]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java (’
+8*ý
+10]
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java (!’
 
 ]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java‚ ‚(" 
+Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.java (" 
 readerjava.io.BufferedReader"__id*
 ""*
-8*Ë
-1]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.javaŒ Œ("g
-]
-Q/Users/danielemariano/eclipse-workspace/2Deliverable/src/main/GetDiffFromGit.javaŒ Œ(
-"":
+9:
 fileNamejava.lang.String:
 pathNamejava.lang.StringB"
 main.GetDiffFromGit
